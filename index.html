@@ -19,11 +19,12 @@
 
     h1 {
       font-size: 2.5em;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     #flipdown {
       display: inline-block;
+      white-space: nowrap;
     }
 
     #retired-message {
@@ -32,7 +33,19 @@
       margin-top: 30px;
     }
 
-    /* Adjust rotor background & text color */
+    /* Horizontal layout fix */
+    .flipdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 15px;
+    }
+
+    .flipdown .rotor-group {
+      margin: 0;
+    }
+
+    /* Remove split line + clean styling */
     .flipdown .rotor,
     .flipdown .rotor-top,
     .flipdown .rotor-bottom,
@@ -41,26 +54,26 @@
       background-color: #ffffff !important;
       color: #000000 !important;
       border: 2px solid #000000;
+      box-shadow: none !important;
     }
 
-    /* Heading styles (Days, Hours, etc) */
+    .flipdown .rotor-leaf {
+      display: none !important;
+    }
+
+    /* Heading under each group */
     .flipdown .rotor-group-heading {
       color: #000000;
-      font-size: 0.8rem;
-      text-transform: uppercase;
       font-weight: bold;
+      font-size: 0.8rem;
       margin-top: 10px;
+      text-transform: uppercase;
     }
 
-    /* Remove margin stacking that causes overlap */
-    .flipdown .rotor-group {
-      margin: 0 10px;
-    }
-
-    /* Fix for narrower viewports */
     @media (max-width: 600px) {
       .flipdown {
-        transform: scale(0.8);
+        flex-wrap: wrap;
+        transform: scale(0.95);
       }
     }
   </style>
