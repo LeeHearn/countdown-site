@@ -4,59 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Full Retirement Countdown</title>
-  <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
+
+  <!-- FlipDown CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css">
+  
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f4f8;
       color: #333;
       text-align: center;
-      padding: 50px;
+      padding: 50px 20px;
     }
+
     h1 {
       font-size: 2.5em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
-    #countdown {
+
+    #flipdown {
+      display: inline-block;
+      margin: auto;
+    }
+
+    #retired-message {
       font-size: 2em;
-      font-weight: bold;
-      margin-top: 20px;
+      color: green;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
+
   <h1>Full Retirement</h1>
   <div id="flipdown" class="flipdown"></div>
+  <div id="retired-message"></div>
+
+  <!-- FlipDown JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
   <script>
-    const targetDate = new Date("September 29, 2026 00:00:00").getTime();
+    // Target date: September 29, 2026 00:00:00
+    const targetDate = new Date("2026-09-29T00:00:00").getTime() / 1000;
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        document.getElementById("countdown").innerHTML = "You are officially retired!";
-        clearInterval(interval);
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // initial call
-    const targetDate = new Date("September 29, 2026 00:00:00").getTime() / 1000;
-    new FlipDown(targetDate).start().ifEnded(() => {
-    document.getElementById("flipdown").innerHTML = "<h2>You are officially retired!</h2>";
-  });
-
+    new FlipDown(targetDate)
+      .start()
+      .ifEnded(() => {
+        document.getElementById("retired-message").innerHTML = "🎉 You are officially retired! 🥳";
+        document.getElementById("flipdown").style.display = "none";
+      });
   </script>
-<script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
+
 </body>
 </html>
