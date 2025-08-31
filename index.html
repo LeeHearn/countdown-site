@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Full Retirement Countdown</title>
+  <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,8 +26,7 @@
 </head>
 <body>
   <h1>Full Retirement</h1>
-  <div id="countdown">Loading...</div>
-
+  <div id="flipdown" class="flipdown">Loading...</div>
   <script>
     const targetDate = new Date("September 29, 2026 00:00:00").getTime();
 
@@ -51,6 +51,12 @@
 
     const interval = setInterval(updateCountdown, 1000);
     updateCountdown(); // initial call
+    const targetDate = new Date("September 29, 2026 00:00:00").getTime() / 1000;
+    new FlipDown(targetDate).start().ifEnded(() => {
+    document.getElementById("flipdown").innerHTML = "<h2>You are officially retired!</h2>";
+  });
+
   </script>
+<script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
 </body>
 </html>
