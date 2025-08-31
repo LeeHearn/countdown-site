@@ -5,75 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Full Retirement Countdown</title>
 
-  <!-- FlipDown CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css">
-
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffffff;
       color: #000000;
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin-bottom: 40px;
     }
 
-    #flipdown {
-      display: inline-block;
-      white-space: nowrap;
-    }
-
-    #retired-message {
-      font-size: 2em;
-      color: green;
-      margin-top: 30px;
-    }
-
-    /* Horizontal layout fix */
-    .flipdown {
+    .countdown {
       display: flex;
       justify-content: center;
-      flex-wrap: nowrap;
-      gap: 15px;
+      gap: 20px;
+      font-size: 2.5em;
     }
 
-    .flipdown .rotor-group {
-      margin: 0;
+    .count-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      width: 120px;
     }
 
-    /* Remove split line + clean styling */
-    .flipdown .rotor,
-    .flipdown .rotor-top,
-    .flipdown .rotor-bottom,
-    .flipdown .rotor-leaf-front,
-    .flipdown .rotor-leaf-rear {
-      background-color: #ffffff !important;
-      color: #000000 !important;
-      border: 2px solid #000000;
-      box-shadow: none !important;
-    }
-
-    .flipdown .rotor-leaf {
-      display: none !important;
-    }
-
-    /* Heading under each group */
-    .flipdown .rotor-group-heading {
-      color: #000000;
+    .count-number {
       font-weight: bold;
-      font-size: 0.8rem;
+      font-size: 2em;
+    }
+
+    .count-label {
       margin-top: 10px;
+      font-size: 0.9em;
       text-transform: uppercase;
     }
 
     @media (max-width: 600px) {
-      .flipdown {
+      .countdown {
         flex-wrap: wrap;
-        transform: scale(0.95);
+        gap: 10px;
+      }
+
+      .count-box {
+        width: 100px;
+        padding: 15px;
       }
     }
   </style>
@@ -81,20 +64,50 @@
 <body>
 
   <h1>Full Retirement</h1>
-  <div id="flipdown" class="flipdown"></div>
-  <div id="retired-message"></div>
+  <div class="countdown">
+    <div class="count-box">
+      <div id="days" class="count-number">0</div>
+      <div class="count-label">Days</div>
+    </div>
+    <div class="count-box">
+      <div id="hours" class="count-number">0</div>
+      <div class="count-label">Hours</div>
+    </div>
+    <div class="count-box">
+      <div id="minutes" class="count-number">0</div>
+      <div class="count-label">Minutes</div>
+    </div>
+    <div class="count-box">
+      <div id="seconds" class="count-number">0</div>
+      <div class="count-label">Seconds</div>
+    </div>
+  </div>
 
-  <!-- FlipDown JS -->
-  <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
   <script>
-    const targetDate = new Date("2026-09-29T00:00:00").getTime() / 1000;
+    const targetDate = new Date("2026-09-29T00:00:00");
 
-    new FlipDown(targetDate)
-      .start()
-      .ifEnded(() => {
-        document.getElementById("retired-message").innerHTML = "🎉 You are officially retired! 🥳";
-        document.getElementById("flipdown").style.display = "none";
-      });
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.body.innerHTML = "<h1>🎉 You are officially retired! 🥳</h1>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
