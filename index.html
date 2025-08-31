@@ -59,29 +59,93 @@
         padding: 15px;
       }
     }
+
+    .countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.digit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hinge {
+  height: 60px;
+  width: auto;
+}
+
+.number-box {
+  background: #ffffff;
+  border: 3px solid #000;
+  border-radius: 8px;
+  padding: 10px 15px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.number {
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .countdown {
+    flex-direction: column;
+  }
+}
+
   </style>
 </head>
 <body>
 
-  <h1>Full Retirement</h1>
-  <div class="countdown">
-    <div class="count-box">
-      <div id="days" class="count-number">0</div>
-      <div class="count-label">Days</div>
+<h1>Full Retirement</h1>
+<div class="countdown">
+  <div class="digit">
+    <img src="hinge.jpg" class="hinge">
+    <div class="number-box">
+      <div class="number" id="days">0</div>
+      <div class="label">Days</div>
     </div>
-    <div class="count-box">
-      <div id="hours" class="count-number">0</div>
-      <div class="count-label">Hours</div>
-    </div>
-    <div class="count-box">
-      <div id="minutes" class="count-number">0</div>
-      <div class="count-label">Minutes</div>
-    </div>
-    <div class="count-box">
-      <div id="seconds" class="count-number">0</div>
-      <div class="count-label">Seconds</div>
-    </div>
+    <img src="hinge.jpg" class="hinge">
   </div>
+  <div class="digit">
+    <img src="hinge.jpg" class="hinge">
+    <div class="number-box">
+      <div class="number" id="hours">0</div>
+      <div class="label">Hours</div>
+    </div>
+    <img src="hinge.jpg" class="hinge">
+  </div>
+  <div class="digit">
+    <img src="hinge.jpg" class="hinge">
+    <div class="number-box">
+      <div class="number" id="minutes">0</div>
+      <div class="label">Minutes</div>
+    </div>
+    <img src="hinge.jpg" class="hinge">
+  </div>
+  <div class="digit">
+    <img src="hinge.jpg" class="hinge">
+    <div class="number-box">
+      <div class="number" id="seconds">0</div>
+      <div class="label">Seconds</div>
+    </div>
+    <img src="hinge.jpg" class="hinge">
+  </div>
+</div>
+
 
   <script>
     const targetDate = new Date("2026-09-29T00:00:00");
