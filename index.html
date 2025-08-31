@@ -11,8 +11,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
+      background-color: #ffffff;
+      color: #000000;
       text-align: center;
       padding: 50px 20px;
     }
@@ -32,6 +32,37 @@
       color: green;
       margin-top: 30px;
     }
+
+    /* FlipDown custom styles */
+    .flipdown {
+      margin-top: 30px;
+    }
+
+    .flipdown .rotor-group {
+      margin: 0 10px;
+    }
+
+    .flipdown .rotor,
+    .flipdown .rotor-top,
+    .flipdown .rotor-bottom,
+    .flipdown .rotor-leaf,
+    .flipdown .rotor-leaf-front,
+    .flipdown .rotor-leaf-rear {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      border: 1px solid #ccc;
+    }
+
+    .flipdown .rotor-group-heading {
+      color: #000000;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .flipdown .rotor-group {
+        margin: 0 5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -43,7 +74,6 @@
   <!-- FlipDown JS -->
   <script src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
   <script>
-    // Target date: September 29, 2026 00:00:00
     const targetDate = new Date("2026-09-29T00:00:00").getTime() / 1000;
 
     new FlipDown(targetDate)
