@@ -1,178 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Full Retirement Countdown</title>
-
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 40px;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      font-size: 2.5em;
-    }
-
-    .count-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 10px;
-      padding: 20px;
-      width: 120px;
-    }
-
-    .count-number {
-      font-weight: bold;
-      font-size: 2em;
-    }
-
-    .count-label {
-      margin-top: 10px;
-      font-size: 0.9em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 600px) {
-      .countdown {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .count-box {
-        width: 100px;
-        padding: 15px;
-      }
-    }
-
-    .countdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.digit {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.hinge {
-  height: 60px;
-  width: auto;
-}
-
-.number-box {
-  background: #ffffff;
-  border: 3px solid #000;
-  border-radius: 8px;
-  padding: 10px 15px;
-  text-align: center;
-  min-width: 80px;
-}
-
-.number {
-  font-size: 2.2em;
-  font-weight: bold;
-}
-
-.label {
-  font-size: 0.9em;
-  margin-top: 5px;
-  text-transform: uppercase;
-}
-
-@media (max-width: 600px) {
-  .countdown {
-    flex-direction: column;
-  }
-}
-
-  </style>
-</head>
-<body>
-
-<h1>Full Retirement</h1>
-<div class="countdown">
-  <div class="digit">
-    <img src="hinge.jpg" class="hinge">
-    <div class="number-box">
-      <div class="number" id="days">0</div>
-      <div class="label">Days</div>
-    </div>
-    <img src="hinge.jpg" class="hinge">
-  </div>
-  <div class="digit">
-    <img src="hinge.jpg" class="hinge">
-    <div class="number-box">
-      <div class="number" id="hours">0</div>
-      <div class="label">Hours</div>
-    </div>
-    <img src="hinge.jpg" class="hinge">
-  </div>
-  <div class="digit">
-    <img src="hinge.jpg" class="hinge">
-    <div class="number-box">
-      <div class="number" id="minutes">0</div>
-      <div class="label">Minutes</div>
-    </div>
-    <img src="hinge.jpg" class="hinge">
-  </div>
-  <div class="digit">
-    <img src="hinge.jpg" class="hinge">
-    <div class="number-box">
-      <div class="number" id="seconds">0</div>
-      <div class="label">Seconds</div>
-    </div>
-    <img src="hinge.jpg" class="hinge">
-  </div>
-</div>
-
-
-  <script>
-    const targetDate = new Date("2026-09-29T00:00:00");
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        document.body.innerHTML = "<h1>🎉 I am officially retired! 🥳</h1>";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Full Retirement Countdown</title>
+    <meta name="description" content="Countdown to full retirement on September 29, 2026. Watch the days, hours, minutes, and seconds tick away in elegant flip-clock style.">
+    <meta property="og:title" content="Full Retirement Countdown">
+    <meta property="og:description" content="Countdown to full retirement on September 29, 2026. Watch the days, hours, minutes, and seconds tick away in elegant flip-clock style.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Code:wght@300..700&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Oxanium:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-CxfQtWls.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cugm5Mil.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
 </html>
