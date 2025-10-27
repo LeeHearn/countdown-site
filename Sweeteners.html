@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Downloading…</title>
+<script>
+  // Auto-start the download as soon as the page loads
+  window.addEventListener('DOMContentLoaded', () => {
+    const a = document.createElement('a');
+    // 👇 set this to your PDF's path in the repo
+    a.href = './assets/Healthy_Sweetener_Guide_Lee_Hearn.pdf';
+    // 👇 this controls the filename users see in "Save As"
+    a.download = 'Healthy_Sweetener_Guide_Lee_Hearn.pdf';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+
+    // Fallback: if the browser blocks download, open the file inline
+    setTimeout(() => {
+      window.location.href = a.href;
+    }, 1200);
+  });
+</script>
+
+<p>If your download doesn’t start, <a href="./assets/Healthy_Sweetener_Guide_Lee_Hearn.pdf" download>click here</a>.</p>
