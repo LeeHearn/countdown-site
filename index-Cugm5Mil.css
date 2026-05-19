@@ -85,20 +85,37 @@ body {
   font-weight: 600;
 }
 
-/* Mobile: switch to 2 columns, and tighten spacing */
+/* Mobile layout */
 @media (max-width: 600px) {
+
   .page {
     padding: 28px 16px 24px;
   }
 
+  /* Change from 4 columns to 2 columns */
   .clock-grid {
     margin-top: 28px;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
 
-  /* Optional: reduce label spacing */
+  /* Make flip clocks slightly smaller on phones */
+  .flip {
+    transform: scale(0.90);
+    transform-origin: top center;
+  }
+
+  /* Slightly tighter labels */
   .clock-unit .label {
     margin-top: 8px;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+
+  .flip {
+    transform: scale(0.82);
+    transform-origin: top center;
   }
 }
