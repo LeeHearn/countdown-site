@@ -1,20 +1,105 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full Retirement Countdown</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css" />
-    <script defer src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js"></script>
-  </head>
-  <body>
-    <div id="flipdown" class="flipdown"></div>
-    <script>
-      const retirementDate =
-        new Date("2026-09-29T00:00:00-05:00").getTime() / 1000;
-    
-      new FlipDown(retirementDate)
-        .start();
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Full Retirement Countdown</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.css"
+  />
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/flipdown@0.3.2/dist/flipdown.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      background: #f4f5f7;
+      font-family: Arial, sans-serif;
+      color: #1f2430;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 56px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin-bottom: 40px;
+      letter-spacing: 3px;
+      color: #6b7280;
+    }
+
+    .footer {
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 18px;
+    }
+
+    .footer span {
+      color: #f59e0b;
+      font-weight: bold;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 38px;
+        text-align: center;
+      }
+
+      .flipdown {
+        transform: scale(0.72);
+        transform-origin: center;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 0 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .flipdown {
+        transform: scale(0.58);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Full Retirement</h1>
+
+  <div class="subtitle">TIME REMAINING</div>
+
+  <div id="flipdown" class="flipdown"></div>
+
+  <div class="footer">
+    Retirement Date:
+    <span>September 29, 2026</span>
+  </div>
+
+  <script>
+    const retirementDate =
+      new Date("2026-09-29T00:00:00-05:00").getTime() / 1000;
+
+    new FlipDown(retirementDate)
+      .start();
+  </script>
+
+</body>
 </html>
