@@ -120,25 +120,13 @@ body {
   }
 }
 
-/* Fix 1px jump at start of flip animation */
-div[style*="flipDown"] {
-  top: 1px !important;
-  left: 1px !important;
-  right: 1px !important;
-  height: calc(50% - 1px) !important;
-  transform-origin: center bottom !important;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  will-change: transform;
-  animation: flipDownFixed 0.6s ease-in-out forwards !important;
-}
-
-@keyframes flipDownFixed {
+/* Fix 1px upward jump at start of top-half flip animation */
+@keyframes flipDown {
   0% {
-    transform: translate3d(0, 0, 0) rotateX(0deg);
+    transform: translate3d(0, 1px, 0) rotateX(0deg);
   }
 
   100% {
-    transform: translate3d(0, 0, 0) rotateX(-90deg);
+    transform: translate3d(0, 1px, 0) rotateX(-90deg);
   }
 }
