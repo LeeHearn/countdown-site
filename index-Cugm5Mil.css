@@ -120,13 +120,9 @@ body {
   }
 }
 
-/* Fix 1px upward jump at start of top-half flip animation */
-@keyframes flipDown {
-  0% {
-    transform: translate3d(0, 1px, 0) rotateX(0deg);
-  }
 
-  100% {
-    transform: translate3d(0, 1px, 0) rotateX(-90deg);
-  }
+/* Flip animation no-jump fix: used by patched JS inline animation name */
+@keyframes flipDownNoJump{
+  0%{transform:translate3d(0,0,0) rotateX(.01deg)}
+  100%{transform:translate3d(0,0,0) rotateX(-90deg)}
 }
